@@ -1,0 +1,67 @@
+problematique: supprimer les CV en doublons dans la base
+unsupervised learning (self supervised)
+train l'autoencodeur sur une base de CV sans doublons
+utilise le codeur sur la base de CV avec doublons: si features sont les mêmes, taguer que c'est le meme (supervised learning)
+clustering (2eme approche)
+
+git + jupiler
+
+
+
+Offline steps:
+
+1. Shape data: normalize, split training and test
+2. Define inference (prediction) function
+3. Define cost function: based on inference function (y) and real output (y)
+4. Define optimizer: minimize the cost function
+
+Online steps:
+
+1. init global variables
+2. start session and run init (sess.run(init))
+3. start to MANUALLY iterating over training steps
+	for each training step : sess.run(optimizer, X, y)
+
+
+linear regression:
+1. ...
+2. ax + b (use tf.add and tf.multiply)
+3. sum(tf_y_pred - tf_y)²/total (use tf.reduced_sum and tf.pow)
+4. tf.gradient_descent (fit learning rate and cost function)
+
+NN: see basics on http://www.ritchieng.com/machine-learning/deep-learning/neural-nets/
+1. ...
+2. Logistic classifier: y = Wx + b
+3. Softmax S (kind of logistic function in N dimensions) to turn into proba
+ & Cross entropy D (loss function; kinda cost function)
+ & 1-hot labels L (vector with all values 0 and one value 1)
+ Finally: cost = D( S ( Wx + b ), L ) (basically L is y here)
+4. tf.gradient_descent (fit learning rate and cost)
+
+SimpleMNIST.py : no hidden layer, direct from input to output
+DeepMNIST.py: since data are images (2D), shall consider this, and insert convolution network layer
+
+NN2: activation fonction is RELU (see https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
+
+TensorBoard:
+	- define log file location
+	- define names and scopes
+	- add summary methods
+	- train
+	- run tensorboard
+
+Keras :
+	- define model
+	- add layers
+	- compile
+	- train
+	- evaluate
+
+
+
+
+
+
+
+
+
